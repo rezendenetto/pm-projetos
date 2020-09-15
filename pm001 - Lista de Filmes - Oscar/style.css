@@ -1,0 +1,34 @@
+* {
+    /*É UMA BOA PRÁTICA ZERAR COM O SELETOR CORINGA "*" TODAS AS MARGIN E TODOS OS PADDING DE TODOS OS ELEMENTOS*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ecf0f1;
+    padding: 12px; /*PRA "DESCOLAR OS ELEMENTOS DAS LATERAIS DA PÁGINA"*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+h1,
+h2 {
+    /*UTILIZAR A "," CASO DE MAIS DE UM SELETOR*/
+    text-align: center; /*CENTRALIZAR O TEXTO*/
+}
+h2 {
+    text-transform: uppercase;
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+ul {
+    list-style-type: none;
+}
+
+li {
+    background-color: #9b59b6;
+    color: #ffffff; /*É UMA BOA PRÁTICA SE FOR USAR A COR EM HEXADECIMAL, MANTER TUDO EM HEXADECIMAL*/
+    margin-bottom: 12px;
+    padding: 12px;
+}

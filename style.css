@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 50px 0px 25px 0px;
+}
+ul {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    list-style-type: square;
+}
+
+li {
+    background-color: #4a4a4a;
+    margin: 5px;
+    padding: 25px;
+}
+
+li:hover {
+    background-color: rgba(74, 74, 74, 0.8);
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
