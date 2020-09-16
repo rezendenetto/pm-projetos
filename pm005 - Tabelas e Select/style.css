@@ -1,0 +1,92 @@
+/*
+DICA:
+- Depois que fizer o CSS geral, vir ajustando o CSS de cada elemento de cima pra baixo e depois finalizar o CSS geral.
+- LAYOUTS COM MUITOS DADOS E OU COMPLEXOS DEMAIS, a questão da responsividade tem que ser pensada especificamente pra dispositivos em telas menores e não simplesmente utilizar unidades como: "%", "rem" e etc... VOCÊ PRECISA REALMENTE REPENSAR A INTERFACE EM UMA TELA MENOR, E NÃO SÓ ENCOLHER OU ESTICAR O LAYOUT. 
+
+- RESPONSIVIDADE DE VERDADE, VOCÊ PRECISA UTILIZAR O MEDIA QUERIES p/ aproveitar melhor os tamanhos de tela/CSS adequados
+*/
+
+body {
+    background-color: #d1d1d1;
+    padding: 25px;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+table {
+    background-color: #fff;
+    width: 100%;
+    border-spacing: 0; /*PRA NÃO HAVER SEPARAÇÃO ENTRE AS BORDAS DE UMA COLUNA PRA OUTRA, border-bottom*/
+    border-radius: 0px 0px 3px 3px;
+    box-shadow: 0px 2px 5px #888;
+}
+
+table caption {
+    background-color: #fff;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 3px 3px 0px 0px; /*Radius bordas superiores da esquerda e da direita, FOI PRECISO FAZER ISSO JÁ QUE A PARTE DE CIMA DA TABELA TEM O CAPTION*/
+    box-shadow: 0px -2px 3px #888; /*COLOCAR NÚMERO NEGATIVO, pra ter sombra pra direção correta neste caso, pra cima e não pra baixo*/
+}
+
+table thead th {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* tr {
+    border-bottom: 1px solid black; 
+    NÃO FUNCIONA, POIS BORDAS NÃO FUNCIONAM EM ELEMENTOS INLINE
+    display: block; 
+    NÃO É A SOLUÇÃO IDEAL, POIS VAI DESCONFIGURAR O LAYOUT DA TABELA
+
+    O ideal é colocar a BORDA no elemento "td" e "th"
+} */
+
+table td,
+table th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+tbody tr td:first-child,
+thead tr th:first-child {
+    /*USO DE PSEUDO SELETOR PRA PEGAR APENAS O PRIMEIRO <td> de cada <tr>, é possível resolver também criando uma CLASS para os primeiros elementos e depois alterando aqui, mas acaba gerando mais código e não fica tão clean*/
+    /* background-color: red; */
+    width: 80px;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #eee;
+}
+
+tfoot {
+    text-align: right;
+    font-size: 12px;
+    /* color: rgba(0, 0, 0, 0.5); */
+    opacity: 50%; /*Outra opção ao uso do rgba*/
+}
+
+tfoot td {
+    padding-right: 20px;
+}
+
+tfoot td span {
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+tfoot td img {
+    margin-left: 30px;
+}
+
+select {
+    border: none;
+    background-color: transparent;
+}
