@@ -1,0 +1,39 @@
+/*1a ETAPA CONCLUÍDA:
+- MOBILE FIRST
+OBS: LAYOUT ESTÁ ELÁSTICO, MAS AINDA NÃO ESTÁ RESPONSIVO.
+
+- POSSO USAR O MEDIA QUERIE AQUI JUNTO COM ESSE CSS OU SEPARAR EM OUTRO ARQUIVO E DENTRO DA TAG LINK NO HTML COLOCAR O ATRIBUTO DO MEDIA, media="(min-width:500px)"
+*/
+
+body {
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    background-image: url(logo-playcode.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 span {
+    /* display: none; */ /*Se for com o display: none, nem o h1, nem o span e nem a imagem irá aparecer*/
+    visibility: hidden;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    /* webkit-font-smoothing: antialiased; AINDA É UTILIZADO??? */
+}
