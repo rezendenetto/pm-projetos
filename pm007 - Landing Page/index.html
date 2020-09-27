@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../pm003 - Login/normalize.css/">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Landing Page</title>
+
+    <style>
+        /* MACETE: usar esse style pra visualizar as "caixas" e auxiliar na montagem da estrutura HTML do site, depois deve ser APAGADO OU COMENTADO */
+        /* section,
+        header,
+        footer {
+            background-color:
+                #666;
+            height:
+                300px;
+            margin-bottom:
+                5px;
+        }
+
+        .container {
+            background-color:
+                #eee;
+            height:
+                300px;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <!-- section*3#topo>.container Atalho pra criar as section, id, div, class  -->
+
+    <header>
+        <!--HEADER OU SECTION-->
+        <div class="container">
+
+            <h1>
+                <span>Logo</span>
+            </h1>
+
+            <nav>
+                <ul>
+                    <!--ul>li*3>a Atalho pra criar os elementos-->
+                    <li><a href="#conheca">Conheça</a></li>
+                    <li><a href="#depoimento">Depoimento</a></li>
+                    <li><a href="#convite">Convite</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <section id="topo">
+        <div class="container">
+
+            <div class="chamada">
+                <!--NECESSÁRIO ESSA DIV, pra que os elementos não fiquem em linha devido ao DISPLAY FLEX da DIV container-->
+                <h2>Conheça Titum</h2>
+                <p>A nova moda do momento.</p>
+                <a href="#conheca" class="botao">Saiba mais</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="conheca">
+        <div class="container">
+            <!--DEVIDO AO DISPLAY FLEX da DIV container, a imagem e a DIV "texto" ficarão uma ao lado da outra-->
+            <img src="fashion-teen-girl-listen-music-mp-relax-happy-dancing-headphones-player-fresh-energetic-young-woman-blue-background-391466.png"
+                alt="">
+
+            <div class="texto">
+                <!--NECESSÁRIO ESSA DIV, pra que os elementos não fiquem em linha devido ao DISPLAY FLEX da DIV container-->
+                <h2>Afinal, o que é o Titum?</h2>
+                <p>Titum é um novo movimento, que veio para ficar. Lançado no último evento musical de maior prestígio
+                    mundial, Titum começou a fazer parte da cultura pop.</p>
+                <a href="#convite" class="botao">Quero Titum</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="depoimento">
+        <div class="container">
+
+            <img src="woman-with-headphones-listening-to-music_21288797.png" alt="">
+            <p>“Titum foi sem dúvida a melhor coisa que aconteceu na minha vida. Eu não sei como consegui viver sem
+                o
+                Titum até hoje”
+                <br><strong>Cláudia Santos</strong></p>
+            <!--MELHOR QUEBRAR POR AQU NESTE CASO DO QUE NO CSS, "Cláudia Santos"-->
+
+        </div>
+    </section>
+
+    <section id="convite">
+        <div class="container">
+            <form action="">
+                <input type="email" placeholder="Receba um convite no email informado aqui">
+                <button><span>Enviar</span></button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2016 Titum - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+/*
+PASSO A PASSO:
+#1o - Montar toda a estrutura de caixas, escrever um texto pra identificar as divs, que será apagado depois
+#2o - Posicionar os elementos dentro das caixas e testar as "ANCORAS"
+#3o - Ir colocando o background e ir ajustando a altura das divs + apagar ou comentar o style das "caixas" usado apenas pra visualização inicial das sections e div container
+#4o - Ir formatando e terminando de cima pra baixo, começando pelo menu, aproveitar pra ir testando a responsividade, e esconder o menu até decidir como será a versão mobile
+#5o - Ir adicionando o texto completo e as imagens
+#6o - FAZER UMA ADAPTAÇÃO PRA UMA VERSÃO MOBILE, pra não quebrar, o ideal seria ter um layout pensado todo pra mobile, mas neste caso vamos apenas adaptar
+
+---
+
+DICAS:
+- Usar UM STYLE auxiliar no arquivo HTML mesmo pra visualização da estrutura/caixas, escrever pra identificar: header, topo, conheça, depoimento, convite, footer
+- Usar MARGIN negativa pra que a cor degrade do background "#topo" entre/suba até o header
+- Usar outra DIV quando quiser tirar o comportamento display FLEX de elementos que estejam dentro de uma DIV container que recebeu DISPLAY FLEX 
+- USAR A TAG "a" pra botões, e usar a class "botão", e quando preciso chamar o elemento específico pra alterar alguma propriedade, tipo width ou fon-size
+
+
+Display block: tem width e height
+Display inline: não aceita receber width e height
+Display inline-block: fica na mesma linha como o inline, mas recebe width e height como o block
+
+float: flutua na esquerda (left) e na direita (right), mas essa técnica costuma dar muito problema... MELHOR USAR O Display: flex
+
+display: flex deve ser colocado no container, e todos os elementos do container passaram a ter comportamento flex
+flex-direction: row (padrão) ou column
+justify-content
+align-items
+
+---
+
+DICAS CSS:
+-> IR DEIXANDO OS ELEMENTOS MAIS GENÉRICOS NO TOPO DO CÓDIGO CSS E OS MAIS ESPECÍFICOS NO FINAL DO CÓDIGO CSS
+-> SEPARAR COM ESPAÇO MAIOR (ENTER) AS DIFERENTES SECÇÕES NO CÓDIGO CSS
+
+-> USAR O PADDING PREFERENCIALMENTE PRA "AFASTAR" ELEMENTOS QUE ESTÃO MUITO COLADOS NAS LATERAIS E OU TOPO DAS DIVS, como imagens e outras DIVS
+
+***Dúvida:
+- Quando utilizar a técnica image replacement (span + bg-img no css) e quando simplesmente inserir uma tag img no HTML???
+
+*/
+
+* {
+    /*MESMO COM O STYLE NORMALIZE, ainda preciso fazer isso aqui*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Lato", sans-serif; /*Ter sempre uma font principal e uma rserva*/
+    /* background-color: red;  */
+    /*Como COMENTEI O STYLE auxiliar das caixas, preciso colocar uma cor forte no background do body pra visualizar algum elemento branco*/
+}
+
+.container {
+    max-width: 960px; /*MAX-WIDTH SERVE PRA DEIXAR RESPONSIVO!!!*/
+    margin: 0 auto;
+    display: flex; /*MACETE: SE EU QUISER QUE ALGUNS ELEMENTOS DENTRO DA DIV CONTAINER NÃO SE COMPORTEM COMO DISPLAY FLEX, PRECISO COLOCÁ-LOS DENTRO DE OUTRA DIV, exemplo: div "chamada"*/
+    justify-content: space-between;
+}
+
+/* section#topo .chamada a {} INVÉS DE USAR DESSA FORMA E SER ESPECÍFICO PRA ESSE "a", nest caso melhor criar uma CLASS "botao" */
+.botao {
+    background-color: #ff3d7f;
+    display: block; /*PRECISO PRA TIRAR O COMPORTAMENTO PADRÃO DA TAG "a" DE INLINE PRA BLOCK, pra pegar a largura total da DIV pai*/
+    color: #fff;
+    font-size: 36px;
+    font-weight: 300;
+    text-decoration: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 6px 0px #a32752;
+    border-radius: 3px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: -105px; /*MACETE: USAR MARGIN NEGATIVA PRA PUXAR/SUBIR A IMAGEM DO TOPO PRA DENTRO DO HEADER, antes de ter colocado o margin-top no "header h1", aqui era margin-bottom: 85px*/
+}
+
+header h1 {
+    background-image: url(logo.png); /*Técnica IMAGE REPLACEMENT*/
+    background-repeat: no-repeat;
+    width: 176px; /*igual ao tamanho da imagem*/
+    height: 85px; /*igual ao tamanho da imagem*/
+    margin-top: 10px; /*Preciso ir no header e adicionar -20px*/
+}
+
+header h1 span {
+    visibility: hidden; /*Técnica IMAGE REPLACEMENT*/
+}
+
+header nav ul {
+    list-style: none;
+    padding-right: 50px; /*Posso também usar o magin neste caso?, na imagem o nome "Convite" deve estar posicionado praticamente em cima do chapéu da menina*/
+    margin: 0;
+    margin-top: 20px; /*Preciso ir no header e adicionar -20px*/
+}
+
+header nav li {
+    display: inline-block;
+    margin-right: 80px; /*Usar essa margin na "li" e não dentro da "li a", pois como vai ter borda no ultimo "li", não quero a borda afastada em 100px como aconteceria se usa-se no "li a", quero apenas distanciar pra que "Convite" fique em cima do chapéu da menina*/
+}
+
+header nav li:last-child {
+    /*PSEUDO ELEMENTO*/
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 10px 30px 10px 30px;
+}
+
+header nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+section#topo {
+    /*No caso de TAG+ID OU TAG+CLASS tem que escrever sem espaço ou escrever só o ID ou só a CLASS, mas não identifica tanto onde que se encontra o elemento no geral do HTML*/
+    background-image: url(fundo.png);
+    height: 700px;
+    background-size: cover; /*Pra redimensionar a imagem baseada no minha DIV*/
+}
+
+section#topo .chamada {
+    /*O CASO É SEMELHANTE AO DE CIMA TAG+ID, mas pra CLASS preciso dar espaço, ficando assim SECTION#TOPO .CHAMADA*/
+    color: #fff;
+    margin-top: 225px;
+    text-align: center; /*Vai CENTRALIZAR todos os textos que estão dentro dessa DIV*/
+}
+
+section#topo .chamada h2 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+section#topo .chamada p {
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+section#conheca {
+    padding: 70px; /*Usado pra descolar os elementos das laterais ou topo da DIV*/
+}
+
+section#conheca .texto {
+    padding: 70px; /*Usado pra descolar os elementos das laterais ou topo da DIV*/
+    padding-top: 30px; /*VAI SOBRESCREVER O PADDING ANTERIOR, cascade style sheet*/
+    padding-right: 30px; /*VAI SOBRESCREVER O PADDING ANTERIOR, cascade style sheet*/
+}
+
+section#conheca .texto h2 {
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+section#conheca .texto p {
+    font-size: 24px;
+    word-spacing: 2px; /*ME BASEAR PELO DESIGN NO FIGMA, pra saber a quantidade de linhas e em qual palavra cada linha se encerra*/
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+section#conheca .texto a {
+    width: 70%; /*Usado pra ficar mais parecido com o projeto do FIGMA*/
+    font-size: 30px;
+}
+
+section#depoimento {
+    background-color: #ebe7fb;
+    border-top: 4px solid #511099;
+}
+
+section#depoimento .container {
+    /*PODE SER RESOLVIDO: 1a opção: colocando a img e o "p" da DIV "depoimento" dentro de outra DIV "texto555" e aqui no CSS usar o text-align: center, ou 2a opção: mudar a direção do DISPLAY FLEX, observar que neste caso a img vai sofre um stretch (padrão)*/
+    flex-direction: column;
+    align-items: center; /*Padrão é o stretch*/
+    padding: 50px; /*Pra distanciar mais os elementos das bordas da DIV, pra não ficar tudo muito colado*/
+    padding-bottom: 35px; /*Pra ajustar igual ao projeto do FIGMA*/
+}
+
+section#depoimento img {
+    margin-bottom: 15px;
+}
+
+section#depoimento p {
+    font-size: 24px;
+    font-weight: 300;
+    width: 80%; /*Usado pra ficar mais parecido com o projeto do FIGMA, 80% da DIV pai*/
+    text-align: center;
+}
+
+section#convite {
+    padding-top: 150px; /*Usado pra afastar das bordas da DIV e "criar" as faixas*/
+    padding-bottom: 150px; /*Usado pra afastar das bordas da DIV e "criar" as faixas*/
+    background-image: url(fundo-convite.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section#convite form {
+    /*USAR A TAG "FORM" MESMO, que já estava criada, pra formatar conforme projeto FIGMA e não ter que criar uma DIV*/
+    background-color: rgba(255, 255, 255, 0.9);
+    /* opacity: 0.5;  */
+    /*O PROBLEMA DE USAR OPACIDADE E NÃO O CANAL ALPHA, é que aqui além de deixar o fundo transparente, vai deixar também o texto e o botão transparente*/
+    padding: 25px;
+    width: 65%; /*% em relação a DIV pai, no caso pe o "container"*/
+    border-radius: 3px;
+    display: flex; /*Como acabou "quebrando" por conta dos tamanhos e afastamentos, foi preciso colocar o DISPLAY FLEX pra voltar os elementos um pro lado do outro*/
+}
+
+section#convite .container {
+    justify-content: center; /*Será se daria pra fazer usando text-align: center? ou não???;*/
+}
+
+section#convite input {
+    padding: 15px;
+    width: 75%;
+    background-color: transparent; /*Pra tirar a formatação padrão deste elemento*/
+    border: none; /*Pra tirar a formatação padrão deste elemento*/
+}
+
+section#convite input::placeholder {
+    font-size: 20px;
+}
+
+section#convite button {
+    background-image: url(botao-convite.png); /*Técnica IMAGE REPLACEMENT*/
+    background-color: transparent; /*Pra tirar a formatação padrão deste elemento*/
+    border: none; /*Pra tirar a formatação padrão deste elemento*/
+    width: 95px;
+    height: 44px;
+    margin-left: 50px;
+    background-repeat: no-repeat;
+}
+
+section#convite button span {
+    visibility: hidden; /*Técnica IMAGE REPLACEMENT*/
+}
+
+footer {
+    background-color: #2a0157;
+    color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 4px; /*PRA DAR O EFEITO DE UMA LINHA BRANCA SEPARANDO o footer*/
+}
+
+footer .container {
+    /*Quando for TAG+CLASS tem que ter o espaço, já quando for TAG+ID deve ficar SEM ESPAÇO*/
+    justify-content: center;
+    font-size: 18px;
+}
+
+@media (max-width: 785px) {
+    /*Se for desenvolver primeiro versão DESKTOP, então devo usar no @media max-width, ou seja aplicar esse estilo de css pra largura máxima de até 785px, já quando desenvolver primeiro a versão MOBILE, usar o @media min-width, ou seja, aplicar o estilo de css pra mínimo até infinito*/
+
+    header nav {
+        display: none;
+    }
+
+    header h1 {
+        margin-left: 20px;
+    }
+
+    section#topo {
+        padding: 20px;
+    }
+
+    section#topo .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    section#conheca .container {
+        flex-direction: column; /*É DE PRAXE elementos que estão na versão desktop lado a lado (ex. imagem e texto), ficarem um em baixo do outro na versão MOBILE*/
+        align-items: center;
+    }
+
+    section#conheca .container .texto {
+        padding: 10px;
+    }
+
+    section#conheca .container .texto a {
+        width: 100%;
+    }
+
+    section#convite form {
+        flex-direction: column;
+        align-items: center;
+        width: 85%;
+    }
+}
